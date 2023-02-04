@@ -1,15 +1,14 @@
 .header {
-    width: 15rem;
+    position: fixed;
+    width: 100%;
+    max-width: 35rem;
+    min-width: 23.5rem;
+    height: 5rem;
+    top: 0;
+    left: calc(50% - max-width);
     display: flex;
     flex-direction: column;
-    border: 1px solid whitesmoke;
-    padding: 1rem;
-    &__name {
-        font-size: 1.5rem;
-        margin-top: 1rem;
-        
-    }
-    &__image {
-        filter: brightness(0);
-    }
+    border: 1px solid rgb(48, 87, 77);
+    background-color: #0c2636;
+    
 }

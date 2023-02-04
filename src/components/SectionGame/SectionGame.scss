@@ -1,0 +1,32 @@
+.section {
+    position: relative;
+    top: 5rem;
+    height: calc(100vh - 13rem);
+    min-width: 23.5rem;
+    background-color: #3d6075;
+    overflow: hidden;
+    &__name {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    &__image {
+        position: absolute;
+        left: 0.5rem;
+        top: 6rem;
+        width: 6rem;
+        filter: brightness(0);
+    }
+    &__cord {
+        position: absolute;
+        width: 3rem;
+        top: -0.4rem;
+        left: calc(50% - 1.5rem);
+    }
+    &__three {
+        position: absolute;
+        top: -2.3rem;
+        right: -1rem;
+        filter: brightness(80%);
+    }
+}

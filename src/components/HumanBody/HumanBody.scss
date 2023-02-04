@@ -1,0 +1,84 @@
+.body {
+    position: absolute;
+    left: calc(50% - 5rem);
+    top: 6rem;
+    width: 10rem;
+    height: 15rem;
+    background-color: #FFFFFF00;
+    
+    &__spine {
+        position: absolute;
+        width: 3rem;
+        left: calc(50% - 1.5rem);
+        top: 3.2rem;
+    }
+    &__handleft {
+        position: absolute;
+        width: 4.5rem;
+        top: 3.8rem;
+        left: 0;
+    }
+    &__handright {
+        position: absolute;
+        width: 6rem;
+        top: 2.5rem;
+        right: -2rem;
+    }
+    &__tailbone {
+        position: absolute;
+        width: 4rem;
+        top: 8.5rem;
+        left: calc(50% - 2rem);
+    }
+    &__legleft {
+        position: absolute;
+        width: 4rem;
+        top: 9rem;
+        left: 0.7rem;
+    }
+    &__legright {
+        position: absolute;
+        width: 2rem;
+        top: 9rem;
+        right: 2.5rem;
+    }
+
+}
+
+.head {
+    position: absolute;
+    width: 6rem;
+    left: calc(50% - 3rem);
+    top: -1rem;
+
+    &__hair {}
+
+    &__eyeleft {
+        transform-origin: center center;
+        animation: moveEye 2s linear infinite alternate;
+    }
+
+    &__eyeright {
+        transform-origin: center center;
+        animation: moveEye 2s linear infinite alternate;
+    }
+
+}
+
+
+
+@keyframes moveEye {
+    0% {
+        transform: translateX(0%);
+    }
+    90% {
+        transform: translateX(2%);
+    }
+    95% {
+        transform: translateX(0%);
+    }
+    100% { 
+        transform: translateX(-2%);
+    }
+}
+

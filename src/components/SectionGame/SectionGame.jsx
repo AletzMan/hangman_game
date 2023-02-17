@@ -13,7 +13,7 @@ function SectionGame({children}) {
         Promise.all([
             getPokemonImage(ID_POKEMON)
         ]).then(value => {
-            setActualPokemonImage(value[0])
+            setActualPokemonImage(value[0].sprites.other.dream_world.front_default)
         })
     }, [])
 

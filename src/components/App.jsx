@@ -5,21 +5,22 @@ import { SecretWord } from './SecretWord/SecretWord'
 import { Alphabet } from './Alphabet/Alphabet'
 import { Footer } from './Footer/Footer'
 import { HumanBody } from './HumanBody/HumanBody'
-import { useCheking } from './Hooks/UseCheking'
+import { useStats } from './Hooks/UseStats'
 
 function App() {
-const {selectedLetter, setSelectedLetter} = useCheking();
+  const { state, updateAttemp, updateLetter } = useStats();
   return (
     <>
       <Header></Header>
       <SectionGame>
         <SecretWord
-          selectedLetter={selectedLetter}
+          updateAttemp={updateAttemp}
+          selectedLetter={state.selectedLetter}
         ></SecretWord>
         <HumanBody></HumanBody>
       </SectionGame>
       <Footer>
-        <Alphabet setSelectedLetter={setSelectedLetter}></Alphabet>
+        <Alphabet updateLetter={updateLetter}></Alphabet>
       </Footer>
     </>
   )

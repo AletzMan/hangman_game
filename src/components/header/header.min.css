@@ -1,1 +1,1 @@
-.header{position:fixed;width:100%;max-width:35rem;min-width:23.5rem;height:5rem;top:0;left:calc(50% - max-width);display:flex;flex-direction:column;border:1px solid #30574d;background-color:#0c2636}
+.header{position:fixed;width:100%;max-width:35rem;min-width:23.5rem;height:5rem;top:0;left:auto;display:flex;flex-direction:column;border-bottom:1px solid #E6D816;background-color:#292639;color:#D1DCE2;z-index:1}

@@ -14,18 +14,19 @@
   height: 2rem;
   text-align: center;
   padding: 0.1rem 0 0 0;
-  background-color: #aaaaaa;
+  background-color: #D1DCE2;
   border: 1px solid #17171700;
   color: #000000;
   font-weight: 600;
   font-size: 1rem;
+  font-family: "Nunito", sans-serif;
   border-radius: 3px;
   box-shadow: 1px 1px 1px #000000;
   transition: background-color, scale 0.2s linear;
   cursor: pointer;
 }
 .alphabet__letter:hover {
-  background-color: #80cf9b;
+  background-color: #E3BE77;
   border: 1px solid #171717;
 }
 .alphabet__letter:disabled {

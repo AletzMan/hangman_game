@@ -29,12 +29,12 @@ const reducer = (state, action) => {
     }
 }
 function useStats() {
-    const [state, dispatch] = useReducer(reducer, initState)
+    const [stateStats, dispatch] = useReducer(reducer, initState)
 
     
     return {
-        state,
-        updateAttemp: () => dispatch({ type: ACTIONS_TYPES.ATTEMPS, payload: state.attemps -  1}),
+        stateStats,
+        updateAttemp: () => dispatch({ type: ACTIONS_TYPES.ATTEMPS, payload: stateStats.attemps -  1}),
         updateLetter: letter => dispatch({ type: ACTIONS_TYPES.LAST_LETTER, payload: letter}),
     }
 }

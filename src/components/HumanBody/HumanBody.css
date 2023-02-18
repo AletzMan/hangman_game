@@ -46,18 +46,34 @@
 .head {
   position: absolute;
   width: 6rem;
+  opacity: 0;
   left: calc(50% - 3rem);
   top: -1rem;
+  animation: upwardOpacity 0.6s linear both;
 }
 .head__eyeleft {
   transform-origin: center center;
   animation: moveEye 2s linear infinite alternate;
 }
+.head__eyeleft--loser {
+  transform: translateY(-2.2rem) translateX(-1.2rem);
+}
 .head__eyeright {
   transform-origin: center center;
   animation: moveEye 2s linear infinite alternate;
 }
+.head__eyeright--loser {
+  transform: translateY(-2rem) translateX(2rem);
+}
 
+@keyframes upwardOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @keyframes moveEye {
   0% {
     transform: translateX(0%);

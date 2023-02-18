@@ -1,7 +1,7 @@
 import { useReducer, useEffect } from "react";
 import { getPokemonByID, getPokemonImage } from "../../services/request";
 
-function useData() {
+function usePokemonData() {
     const initState = {
         id: '',
         name: '',
@@ -28,7 +28,7 @@ function useData() {
             state;
         }
     }
-    const [state, dispatch] = useReducer(reducer, initState);
+    const [pokemonData, dispatch] = useReducer(reducer, initState);
 
 
     const ID_POKEMON = 4;
@@ -38,7 +38,7 @@ function useData() {
             getPokemonByID(ID_POKEMON),
             getPokemonImage(ID_POKEMON)
         ]).then(value => {
-            console.log(value[0])
+            
             //setActualPokemon(value[0].name.toUpperCase())
             dispatch({
                 type: ACTIONS_TYPES.ALL_UPDATE,
@@ -54,9 +54,9 @@ function useData() {
 
 
     return ({
-        state
+        pokemonData
     })
 }
 
 
-export { useData };
+export { usePokemonData };

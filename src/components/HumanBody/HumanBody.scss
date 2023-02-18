@@ -48,24 +48,41 @@
 .head {
     position: absolute;
     width: 6rem;
+    opacity: 0;
     left: calc(50% - 3rem);
     top: -1rem;
+    animation: upwardOpacity 0.6s linear both;
 
     &__hair {}
 
     &__eyeleft {
         transform-origin: center center;
         animation: moveEye 2s linear infinite alternate;
+        &--loser {
+            transform: translateY(-2.2rem) translateX(-1.2rem);
+        }
     }
 
     &__eyeright {
         transform-origin: center center;
         animation: moveEye 2s linear infinite alternate;
+        &--loser {
+            transform: translateY(-2rem) translateX(2rem);
+        }
     }
 
 }
 
+@keyframes upwardOpacity {
+    0% {
+        opacity: 0;
+    }
 
+
+    100% {
+        opacity: 1;
+    }
+}
 
 @keyframes moveEye {
     0% {

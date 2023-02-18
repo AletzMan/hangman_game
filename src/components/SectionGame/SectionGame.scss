@@ -1,9 +1,15 @@
+$color_header: #292639;
+$color_section: #606978;
+$color_font: #D1DCE2;
+$color_button: #E3BE77;
+$color_hover: #E6D816;
+
 .section {
     position: relative;
     top: 5rem;
     height: calc(100vh - 13rem);
     min-width: 23.5rem;
-    background-color: #3d6075;
+    background-color: $color_section;
     overflow: hidden;
     &__name {
         font-size: 1.5rem;

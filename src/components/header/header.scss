@@ -1,3 +1,9 @@
+$color_header: #292639;
+$color_section: #606978;
+$color_font: #D1DCE2;
+$color_button: #E3BE77;
+$color_hover: #E6D816;
+
 .header {
     position: fixed;
     width: 100%;
@@ -5,10 +11,12 @@
     min-width: 23.5rem;
     height: 5rem;
     top: 0;
-    left: calc(50% - max-width);
+    left: auto;
     display: flex;
     flex-direction: column;
-    border: 1px solid rgb(48, 87, 77);
-    background-color: #0c2636;
+    border-bottom: 1px solid $color_hover;
+    background-color: $color_header;
+    color: $color_font;
+    z-index: 1;
     
 }

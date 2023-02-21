@@ -1,0 +1,116 @@
+$color_header: #292639;
+$color_section: #606978;
+$color_font: #D1DCE2;
+$color_button: #E3BE77;
+$color_hover: #E6D816;
+
+
+.modal {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    top: 0rem;
+    z-index: 3;
+    background-color: #292639AA;
+
+    &__window {
+        position: relative;
+        display: grid;
+        place-items: center;
+        width: 80%;
+        height: 20rem;
+        background-color: $color_header;
+        border: 1px solid #E3BE7766;
+        animation: animationWindow 1s cubic-bezier(0.53,0.36,0.35,1.35) both;
+    }
+
+    &__again {
+        padding: 0.4rem 0.7rem;
+        border-radius: 0.2rem;
+        text-decoration: none;
+        color: $color_header;
+        font-weight: 600;
+        background-color: #E3BE77;
+        border: 1px solid $color_header;
+        transition: all 0.3s linear;
+
+        &:hover {
+            border: 1px solid $color_button;
+            filter: brightness(120%);
+        }
+    }
+
+    &__image{
+        width: 7rem;
+        filter: drop-shadow(5px 5px 5px #FFFFFF);
+        -webkit-filter: drop-shadow(0px 0px 20px #d0f1c785);
+        z-index: 0;
+    }
+
+    &__name {
+        font-weight: 600;
+        font-size: 1.5rem;
+        padding: 0.3rem 1rem;
+        background-color: #FFFFFF10;        
+    }
+}
+
+
+@keyframes animationWindow {
+    from{transform: translateX(500px);}
+    to{transform: translateX(0);}
+}
+
+.paragraph {
+    position: relative;
+    left: -10.7rem;
+    z-index: 1;
+
+    &__letter {
+        position: absolute;
+        font-size: 1.9rem;
+        top: 0px;
+        text-align: center;
+        font-weight: bold;
+        background-image: linear-gradient(to left, #661725, #5d3a85, #a5531c, #286cc4, #12832e, #be950b);
+        color: transparent;
+        text-shadow: 1px 1px 0px 1px #FFFFFF99;
+        -webkit-background-clip: text;
+        background-clip: text;
+        background-size: 400%;
+        transform: translate(0px);
+        animation-name: animationTextGameOver;
+        animation-timing-function: ease-in-out;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+
+        @for $i from 1 to 10 {
+            &:nth-child(#{$i}) {
+                animation-delay: #{(1 + $i)/4}s;
+                left: #{$i*1.8rem};
+            }
+        }
+
+        &--separator {
+            visibility: hidden;
+            color: transparent;
+        }
+
+    }
+}
+
+
+@keyframes animationTextGameOver {
+    from {
+        background-position: 0% 50%;
+        transform: translateY(0px);
+    }
+
+    to {
+        background-position: 100% 50%;
+        transform: translateY(-15px);
+    }
+}

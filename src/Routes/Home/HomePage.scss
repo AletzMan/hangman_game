@@ -1,0 +1,212 @@
+$color_header: #292639;
+$color_section: #606978;
+$color_font: #D1DCE2;
+$color_button: #E3BE77;
+$color_hover: #E6D816;
+
+.home {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 34rem;
+    min-width: 23.5rem;
+    height: 95vh;
+    padding: 0.5rem;
+    background-color:  $color_header;
+    background-image: url("../../assets/mountain-image.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    overflow: hidden;
+
+    &__play{
+        position: absolute;
+        left: 58px;
+        top: 10px;
+        z-index: 1;
+        font-size: 1.5rem;
+        font-weight: 600;
+        font-family: 'Shantell Sans', cursive;
+        color: $color_button;
+        &::before{
+            content: 'ꜜ';
+            position: absolute;
+            bottom: -35px;
+            left: 12px;
+            font-size: 3rem;
+            animation: animationArrowPlay 1s linear infinite;
+        }
+    }
+
+    &__title {
+        color: $color_button;
+        padding: 0.5rem 0;
+        background-color: #29263945;
+        text-shadow: 0 0 4px #171717;
+        border-radius: 3rem;
+        width: 80%;
+    }
+
+    &__subtitle {
+        color: $color_hover;
+        font-size: 2rem;
+        font-family: 'Shantell Sans', cursive;
+        text-shadow: 0 0 4px #171717;
+    }
+
+    &__clouds{
+        position: absolute;
+        width: 100%;
+    }
+}
+
+.pokeball__container {
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    border: 1px solid rgb(110, 108, 108);
+    box-shadow: 0 0 20px 10px #7e828580;
+}
+
+
+
+.pokeball {
+    position: relative;
+    width: 10rem;
+    height: 0rem;
+    border-radius: 50%;
+    background-color: rgb(24, 20, 20);
+    border-top: 5rem solid #d10808;
+    border-bottom: 5rem solid rgb(226, 226, 226);
+
+    &__true {
+        animation: animationPokeball 1s linear both;
+    }
+
+    &__reflex--false {
+        position: absolute;
+        width: 6rem;
+        height: 0rem;
+        border-radius: 50%;
+        transform: rotate(-40deg) translateX(-0.5rem) translateY(1.3rem);
+        background-color: transparent;
+        border-top: 0.7rem solid #ffffff16;
+        border-bottom: 3rem solid transparent;
+        z-index: 2;
+    }
+
+    &__line {
+        position: absolute;
+        top: 4.75rem;
+        width: 10rem;
+        height: 0.5rem;
+        background-color: black;
+    }
+
+    &__circle {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: 3.75rem;
+        top: 3.5rem;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        border: 0.45rem solid black;
+        background-color: #FFFFFF;
+    }
+
+    &__button {
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        border: none;
+        background-color: transparent;
+        box-shadow: 0 0 10px 1px rgb(80, 79, 79);
+        transition: background-color 0.4s linear;
+        animation: animationButton 1s linear alternate infinite;
+        cursor: pointer;
+        z-index: 2;
+
+        &:hover {
+            background-color: #FF000085;
+        }
+    }
+
+    &__stela {
+        position: absolute;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        //border: 1px solid #FF0000;
+        box-shadow: 0 0 10px 1px #FF0000AA, 0 0 10px 1px #FF0000AA inset;
+        animation: animationStela 1s linear infinite;
+        z-index: 1;
+    }
+}
+
+
+
+.images {
+    width: 100%;
+
+    &__pokemon {
+        width: 17rem;
+    }
+
+    &__pikachu {
+        width: 8rem;
+    }
+}
+
+
+@keyframes animationArrowPlay {
+    0% {
+        transform: translateY(-5px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(18px);
+        opacity: 0;
+    }
+}
+
+
+@keyframes animationStela {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+@keyframes animationButton {
+    0% {
+        box-shadow: 0 0 10px 1px rgb(80, 79, 79);
+    }
+
+    100% {
+        box-shadow: 0 0 10px 1px rgb(80, 79, 79), 0 0 10px 1px #FF000090 inset;
+    }
+}
+
+@keyframes animationPokeball {
+    0% {
+        border-top: 5rem solid rgb(224, 0, 0);
+        height: 0rem;
+    }
+
+    100% {
+        border-top: 1rem solid rgb(224, 0, 0);
+        height: 4rem;
+    }
+}

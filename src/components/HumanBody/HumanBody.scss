@@ -5,44 +5,90 @@
     width: 10rem;
     height: 15rem;
     background-color: #FFFFFF00;
-    
+
     &__spine {
         position: absolute;
         width: 3rem;
         left: calc(50% - 1.5rem);
         top: 3.2rem;
+        opacity: 0;
+        animation: upwardOpacity 0.6s linear both;
+        z-index: 0;
     }
+
     &__handleft {
         position: absolute;
         width: 4.5rem;
         top: 3.8rem;
         left: 0;
+        opacity: 0;
+        transform-origin: right top;
+        animation: upwardOpacity 0.6s linear both;
+
+        &--true {
+            opacity: 1;
+            animation: handMove 0.3s linear 0.7s both;
+        }
     }
+
     &__handright {
         position: absolute;
         width: 6rem;
-        top: 2.5rem;
+        top: 3.5rem;
         right: -2rem;
+        opacity: 0;
+        transform-origin: left top;
+        animation: upwardOpacity 0.6s linear both;
+
+        &--true {
+            opacity: 1;
+            animation: handMoveRight 0.3s linear 0.7s both;
+        }
     }
+
     &__tailbone {
         position: absolute;
         width: 4rem;
         top: 8.5rem;
         left: calc(50% - 2rem);
+        opacity: 0;
+        animation: upwardOpacity 0.6s linear both;
     }
+
     &__legleft {
         position: absolute;
-        width: 4rem;
+        width: 2rem;
         top: 9rem;
-        left: 0.7rem;
+        left: 2.6rem;
+        opacity: 0;
+        animation: upwardOpacity 0.6s linear both;
     }
+
     &__legright {
         position: absolute;
         width: 2rem;
         top: 9rem;
         right: 2.5rem;
+        opacity: 0;
+        animation: upwardOpacity 0.6s linear both;
     }
+    
+    &__node {
+        position: absolute;
+        width: 2rem;
+        top: -3.8rem;
+        left: 4.2rem;
+        z-index: 1;
+        
+        &--true {
+            animation: animationNode 0.7s linear 0.2s both;            
+        }
+    }
+}
 
+@keyframes animationNode {
+    0%{transform: translateY(0);}
+    100%{transform: translateY(2rem);}
 }
 
 .head {
@@ -52,12 +98,20 @@
     left: calc(50% - 3rem);
     top: -1rem;
     animation: upwardOpacity 0.6s linear both;
+    z-index: 2;
 
-    &__hair {}
+    &__mouth {
+        transition: all 0.3s linear;
+
+        &--true {
+            transform: scaleY(0.2) translateY(55rem) rotateX(170deg);
+        }
+    }
 
     &__eyeleft {
         transform-origin: center center;
         animation: moveEye 2s linear infinite alternate;
+
         &--loser {
             transform: translateY(-2.2rem) translateX(-1.2rem);
         }
@@ -66,11 +120,32 @@
     &__eyeright {
         transform-origin: center center;
         animation: moveEye 2s linear infinite alternate;
+
         &--loser {
             transform: translateY(-2rem) translateX(2rem);
         }
     }
 
+}
+
+@keyframes handMove {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(-50deg);
+    }
+}
+
+@keyframes handMoveRight {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(60deg);
+    }
 }
 
 @keyframes upwardOpacity {
@@ -86,16 +161,18 @@
 
 @keyframes moveEye {
     0% {
-        transform: translateX(0%);
+        opacity: 1;
     }
-    90% {
-        transform: translateX(2%);
+
+    20% {
+        opacity: 0.5;
     }
-    95% {
-        transform: translateX(0%);
+
+    30% {
+        opacity: 1;
     }
-    100% { 
-        transform: translateX(-2%);
+
+    100% {
+        opacity: 1;
     }
 }
-

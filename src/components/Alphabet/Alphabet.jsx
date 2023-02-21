@@ -1,4 +1,5 @@
 
+import { useEffect } from "react";
 import { useRef } from "react";
 import "./Alphabet.css";
 const ALPHABET = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
@@ -9,10 +10,19 @@ pressedKey.length = ALPHABET.length;
 let pressedLetter;
 let numberOfHits = 0;
 
-function Alphabet({ updateLetter, setStateLives, stateLives, pokemonData }) {
+function Alphabet({ updateLetter, setStateLives, stateLives, pokemonData, setWinner, gamesWon }) {
     const correctLetters = useRef(0);
+    useEffect(() => {
+        updateLetter('');
+        setStateLives(7);
+        pressedLetter = '';
+        for (let index = 0; index < ALPHABET.length; index++) {
+            pressedKey[index] = false;
+        }
+    }, [])
     const OnPressed = (index) => {
         if (stateLives > 0 && numberOfHits < pokemonData.name.length) {
+
             pressedLetter = ALPHABET[index];
             updateLetter(ALPHABET[index]);
             pressedKey[index] = true;
@@ -27,9 +37,15 @@ function Alphabet({ updateLetter, setStateLives, stateLives, pokemonData }) {
                 numberOfHits = correctLetters.current += (1 * numberLetters.length);
             }
         }
-        if(numberOfHits === pokemonData.name.length) console.log('GANASTE')
-        else if (stateLives === 1)  console.log('PERDISTE')
-        
+        if (numberOfHits === pokemonData.name.length) {
+            setWinner(true);
+            gamesWon.current += 1;
+        }
+        else if (stateLives === 1) {
+            setWinner(false);
+            gamesWon.current = 0;
+        }
+
     }
     for (let index = 0; index < ALPHABET.length; index++) {
         characters[index] = (

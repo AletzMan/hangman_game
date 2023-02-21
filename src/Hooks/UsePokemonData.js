@@ -1,5 +1,5 @@
 import { useReducer, useEffect } from "react";
-import { getPokemonByID, getPokemonImage } from "../../services/request";
+import { getPokemonByID, getPokemonImage } from "../services/request";
 
 function usePokemonData() {
     const initState = {
@@ -8,6 +8,8 @@ function usePokemonData() {
         type: '',
         habitat: '',
         attack: '',
+        image: '',
+        color: '',
     }
 
     const ACTIONS_TYPES = {
@@ -23,6 +25,8 @@ function usePokemonData() {
                 type: action.payload[2],
                 habitat: action.payload[3],
                 attack: action.payload[4],
+                image: action.payload[5],
+                color: action.payload[6],
             }
         } else {
             state;
@@ -31,6 +35,7 @@ function usePokemonData() {
     const [pokemonData, dispatch] = useReducer(reducer, initState);
 
 
+    //const ID_POKEMON = Math.floor(Math.random() * (250 - 1) + 1);;
     const ID_POKEMON = 4;
 
     useEffect(() => {
@@ -46,7 +51,9 @@ function usePokemonData() {
                     [value[0].id,
                     value[0].name, value[1].types[0].type.name,
                     value[0].habitat.name,
-                    value[1].abilities[0].ability.name]
+                    value[1].abilities[0].ability.name,
+                    value[1].sprites.other.dream_world.front_default,
+                    value[0].color.name]
             })
         })
     }, [])

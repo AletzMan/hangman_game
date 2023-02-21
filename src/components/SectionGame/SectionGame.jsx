@@ -8,7 +8,8 @@ import cord from "../../assets/cord-image.svg";
 function SectionGame({children}) {
     const [actualPokemonImage, setActualPokemonImage] = React.useState('');
   
-    const ID_POKEMON = 4;
+    /*
+    const ID_POKEMON = 1;
     useEffect(() => {
         Promise.all([
             getPokemonImage(ID_POKEMON)
@@ -17,11 +18,11 @@ function SectionGame({children}) {
         })
     }, [])
 
-
+*/
 
     return (
         <section className="section">
-            {/*<img className="section__image" src={actualPokemonImage}></img>      */      }
+            {/*<img className="section__image" src={actualPokemonImage}></img>      */     }
             <img className="section__three" src={three}></img>
             <img className="section__cord" src={cord}></img>
             {children}

@@ -13,6 +13,10 @@ function SecretWord({ updateAttemp, selectedLetter, pokemonData }) {
             updateAttemp();
         }
     }, [selectedLetter])
+    
+    useEffect(() => {
+        spelledName = [];
+    }, [])
     let letters = [];
 
     for (let index = 0; index < pokemonData.name.length; index++) {

@@ -28,6 +28,7 @@ $color_hover: #E6D816;
         width: 3rem;
         top: -0.4rem;
         left: calc(50% - 1.5rem);
+        z-index: 1;
     }
     &__three {
         position: absolute;

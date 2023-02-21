@@ -30,8 +30,6 @@
 }
 .clues__button {
   display: block;
-  font-family: "Nunito", sans-serif;
-  cursor: pointer;
   border-radius: 0.1rem;
   background-color: #E3BE77;
   border: 1px solid #E3BE77;
@@ -39,12 +37,21 @@
   font-weight: 600;
   font-size: 1rem;
   height: 100%;
+  font-family: "Nunito", sans-serif;
+  transition: all 0.3s linear;
+  cursor: pointer;
 }
 .clues__button:hover {
   background-color: #E6D816;
+  border: 1px solid #292639;
+}
+.clues__button--false {
+  visibility: visible;
+  opacity: 1;
 }
 .clues__button--true {
-  animation: animationButton 0.7s linear both;
+  visibility: hidden;
+  opacity: 0;
 }
 .clues__buttonone {
   grid-column: 1/2;
@@ -77,18 +84,9 @@
   grid-row: 4/5;
 }
 .clues__label--true {
-  animation: animationLabel 0.7s linear 0.3s both;
+  animation: animationLabel 0.5s linear 0.3s both;
 }
 
-@keyframes animationButton {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    visibility: hidden;
-    opacity: 0;
-  }
-}
 @keyframes animationLabel {
   0% {
     opacity: 0;

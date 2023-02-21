@@ -18,5 +18,20 @@ $color_hover: #E6D816;
     background-color: $color_header;
     color: $color_font;
     z-index: 1;
+
+    &__title {
+        font-size: 1.5rem;
+        height: 1.3rem;
+    }
     
+    &__games {
+        font-size: 1.2rem;
+        color: $color_button;
+
+        &--number {
+            color: #00f549;
+            font-size: 1.3rem;
+            font-weight: 400;
+        }
+    }
 }

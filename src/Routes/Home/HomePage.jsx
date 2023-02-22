@@ -15,6 +15,7 @@ function HomePage() {
         setTimeout(() => {
             navigate("/game");
         }, 1000);
+        localStorage.setItem('GAMES_WON',0);
     }
 
     return (

@@ -6,23 +6,29 @@ function Modal({ pokemonData, winner }) {
     const navigate = useNavigate();
 
     const playAgain = () => {
-        navigate(0, { state: {lives: '2'} });
+        navigate(0);
     }
-
+    if(winner){
+        const prevValue = parseInt(localStorage.getItem('GAMES_WON')) + 1;
+        localStorage.setItem('GAMES_WON', prevValue);
+    } else {
+        localStorage.setItem('GAMES_WON', 0);
+    }
+    
     
     return (
         <div className="modal">
             <div className="modal__window">
                 <p className="modal_paragraph paragraph">
-                    <span className="paragraph__letter paragraph__letter--one">{winner ? '' : 'G'}</span>
-                    <span className="paragraph__letter paragraph__letter--two">{winner ? '' : 'A'}</span>
-                    <span className="paragraph__letter paragraph__letter--three">{winner ? 'W' : 'M'}</span>
-                    <span className="paragraph__letter paragraph__letter--four">{winner ? 'I' : 'E'}</span>
-                    <span className="paragraph__letter paragraph__letter--five"> {winner ? 'N' : ' - '} </span>
-                    <span className="paragraph__letter paragraph__letter--six">{winner ? 'N' : 'O'}</span>
-                    <span className="paragraph__letter paragraph__letter--seven">{winner ? 'E' : 'V'}</span>
-                    <span className="paragraph__letter paragraph__letter--eight">{winner ? 'R' : 'E'}</span>
-                    <span className="paragraph__letter paragraph__letter--nine">{winner ? '' : 'R'}</span>
+                    <span className={`paragraph__letter paragraph__letter--${winner}`}>{winner ? '' : 'G'}</span>
+                    <span className={`paragraph__letter paragraph__letter--${winner}`}>{winner ? 'S' : 'A'}</span>
+                    <span className={`paragraph__letter paragraph__letter--${winner}`}>{winner ? 'U' : 'M'}</span>
+                    <span className={`paragraph__letter paragraph__letter--${winner}`}>{winner ? 'C' : 'E'}</span>
+                    <span className={`paragraph__letter paragraph__letter--${winner}`}> {winner ? 'C' : ''} </span>
+                    <span className={`paragraph__letter paragraph__letter--${winner}`}>{winner ? 'E' : 'O'}</span>
+                    <span className={`paragraph__letter paragraph__letter--${winner}`}>{winner ? 'S' : 'V'}</span>
+                    <span className={`paragraph__letter paragraph__letter--${winner}`}>{winner ? 'S' : 'E'}</span>
+                    <span className={`paragraph__letter paragraph__letter--${winner}`}>{winner ? '' : 'R'}</span>
                 </p>
                 <img className="modal__image" src={pokemonData.image} alt={`pokemon image of ${pokemonData.name}`} />
                 <span className="modal__name" style={{ color: `${pokemonData.color}` }}>{pokemonData.name.toUpperCase()}</span>

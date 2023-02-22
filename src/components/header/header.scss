@@ -17,21 +17,52 @@ $color_hover: #E6D816;
     border-bottom: 1px solid $color_hover;
     background-color: $color_header;
     color: $color_font;
-    z-index: 1;
+    z-index: 2;
 
     &__title {
-        font-size: 1.5rem;
-        height: 1.3rem;
+        font-size: 1.4rem;
+        height: 0;
+    }
+
+    &__subtitle {
+        color: $color_hover;
+        font-size: 1.6rem;
+        font-family: 'Shantell Sans', cursive;
+        text-shadow: 0 0 4px #171717;
     }
     
     &__games {
+        position: absolute;
+        bottom: -4rem;
+        right: 1rem;
+        padding: 0.3rem 0.8rem;
+        border-radius: 0 0 0.5rem 0.5rem;
         font-size: 1.2rem;
         color: $color_button;
+        background-color: $color_header;
+        border: 1px solid $color_button;
+        z-index: 2;
 
         &--number {
             color: #00f549;
             font-size: 1.3rem;
             font-weight: 400;
+        }
+    }
+
+    &__cord {
+        position: absolute;
+        bottom: -5rem;
+        width: 0.5rem;
+        border-radius: 0 0 0.8rem 0.8rem;
+        z-index: 0;
+
+        &--right {
+            right: 2rem;
+        }
+        
+        &--left {
+            right: 9rem;
         }
     }
 }

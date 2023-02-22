@@ -10,7 +10,7 @@ pressedKey.length = ALPHABET.length;
 let pressedLetter;
 let numberOfHits = 0;
 
-function Alphabet({ updateLetter, setStateLives, stateLives, pokemonData, setWinner, gamesWon }) {
+function Alphabet({ updateLetter, setStateLives, stateLives, pokemonData, setWinner }) {
     const correctLetters = useRef(0);
     useEffect(() => {
         updateLetter('');
@@ -39,11 +39,9 @@ function Alphabet({ updateLetter, setStateLives, stateLives, pokemonData, setWin
         }
         if (numberOfHits === pokemonData.name.length) {
             setWinner(true);
-            gamesWon.current += 1;
         }
         else if (stateLives === 1) {
             setWinner(false);
-            gamesWon.current = 0;
         }
 
     }

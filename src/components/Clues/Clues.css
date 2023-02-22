@@ -44,6 +44,7 @@
 .clues__button:hover {
   background-color: #E6D816;
   border: 1px solid #292639;
+  filter: brightness(90%);
 }
 .clues__button--false {
   visibility: visible;
@@ -52,6 +53,12 @@
 .clues__button--true {
   visibility: hidden;
   opacity: 0;
+}
+.clues__button:disabled {
+  cursor: not-allowed;
+  background-color: #E3BE77;
+  border: 1px solid #E3BE77;
+  filter: brightness(50%);
 }
 .clues__buttonone {
   grid-column: 1/2;

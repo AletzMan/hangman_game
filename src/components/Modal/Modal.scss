@@ -23,11 +23,11 @@ $color_hover: #E6D816;
         height: 20rem;
         background-color: $color_header;
         border: 1px solid #E3BE7766;
-        animation: animationWindow 1s cubic-bezier(0.53,0.36,0.35,1.35) both;
+        animation: animationWindow 0.6s cubic-bezier(0.53,0.36,0.35,1.35) both;
     }
 
     &__again {
-        padding: 0.4rem 0.7rem;
+        padding: 0.5rem 1rem;
         border-radius: 0.2rem;
         text-decoration: none;
         color: $color_header;
@@ -35,6 +35,7 @@ $color_hover: #E6D816;
         background-color: #E3BE77;
         border: 1px solid $color_header;
         transition: all 0.3s linear;
+        cursor: pointer;
 
         &:hover {
             border: 1px solid $color_button;
@@ -74,9 +75,8 @@ $color_hover: #E6D816;
         top: 0px;
         text-align: center;
         font-weight: bold;
-        background-image: linear-gradient(to left, #661725, #5d3a85, #a5531c, #286cc4, #12832e, #be950b);
+        text-shadow: 0 0 4px#00000088;       
         color: transparent;
-        text-shadow: 1px 1px 0px 1px #FFFFFF99;
         -webkit-background-clip: text;
         background-clip: text;
         background-size: 400%;
@@ -87,18 +87,20 @@ $color_hover: #E6D816;
         animation-iteration-count: infinite;
         animation-direction: alternate;
 
+        &--true {
+            background-image: linear-gradient(to left, #136ce0, #0dc23a, #eeb909);
+        }
+        
+        &--false {
+            background-image: linear-gradient(to left, #ff1100, #ffa600, #ff1100);
+        }
+
         @for $i from 1 to 10 {
             &:nth-child(#{$i}) {
                 animation-delay: #{(1 + $i)/4}s;
-                left: #{$i*1.8rem};
+                left: #{$i*2rem};
             }
         }
-
-        &--separator {
-            visibility: hidden;
-            color: transparent;
-        }
-
     }
 }
 

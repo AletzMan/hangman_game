@@ -1,6 +1,3 @@
-//import React, { useEffect } from "react";
-//import { getPokemonByID } from "../../services/request";
-
 
 import { useEffect } from 'react';
 import "./SecretWord.css";

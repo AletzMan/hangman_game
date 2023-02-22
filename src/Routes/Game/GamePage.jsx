@@ -12,24 +12,28 @@ import { usePokemonData } from '../../Hooks/UsePokemonData';
 import { Modal } from '../../components/Modal/Modal';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { UseLocalStorage } from '../../Hooks/useLocalStorage';
 
 function GamePage() {
   const { stateStats, updateAttemp, updateLetter } = useStats();
-  const { stateLives, setStateLives, winner, setWinner, gamesWon } = useGlobal();
+  const { stateLives, setStateLives, winner, setWinner } = useGlobal();
   const { pokemonData } = usePokemonData();
   const [viewModal, setViewModal] = useState(false);
 
   
-  if (stateLives < 1 || winner) {
+  if (stateLives < 1) {
     setTimeout(() => {
       setViewModal(true);
-      console.log(viewModal)
-    }, 1200);
+    }, 1000);
+  } else if(winner) {
+    setTimeout(() => {
+      setViewModal(true);
+    }, 400);
   }
-  console.log(useLocation())
+  
   return (
     <>
-      <Header gamesWon={gamesWon}></Header>
+      <Header ></Header>
       <SectionGame>
         <SecretWord
           updateAttemp={updateAttemp}
@@ -40,7 +44,7 @@ function GamePage() {
         <Clues setStateLives={setStateLives} stateLives={stateLives}></Clues>
       </SectionGame>
       <Footer>
-        <Alphabet updateLetter={updateLetter} setStateLives={setStateLives} stateLives={stateLives} pokemonData={pokemonData} setWinner={setWinner} gamesWon={gamesWon}></Alphabet>
+        <Alphabet updateLetter={updateLetter} setStateLives={setStateLives} stateLives={stateLives} pokemonData={pokemonData} setWinner={setWinner}></Alphabet>
       </Footer>
       {viewModal && <Modal pokemonData={pokemonData} winner={winner}></Modal>}
     </>

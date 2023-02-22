@@ -35,8 +35,8 @@ function usePokemonData() {
     const [pokemonData, dispatch] = useReducer(reducer, initState);
 
 
-    //const ID_POKEMON = Math.floor(Math.random() * (250 - 1) + 1);;
-    const ID_POKEMON = 4;
+    const ID_POKEMON = Math.floor(Math.random() * (250 - 1) + 1);;
+    //const ID_POKEMON = 25;
 
     useEffect(() => {
         Promise.all([

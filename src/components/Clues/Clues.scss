@@ -51,6 +51,7 @@ $color_hover: #E6D816;
         &:hover {
             background-color: $color_hover;
             border: 1px solid $color_header;
+            filter: brightness(90%);
         }
 
         &--false {
@@ -61,6 +62,13 @@ $color_hover: #E6D816;
         &--true {
             visibility: hidden;
             opacity: 0;
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            background-color: $color_button;
+            border: 1px solid $color_button;
+            filter: brightness(50%);
         }
 
         &one {

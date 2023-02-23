@@ -1,5 +1,5 @@
 import { useReducer, useEffect } from "react";
-import { getPokemonByID, getPokemonImage } from "../services/request";
+import { getPokemonByID, getPokemonImage, getPokemonType } from "../services/request";
 
 function usePokemonData() {
     const initState = {
@@ -7,13 +7,16 @@ function usePokemonData() {
         name: '',
         type: '',
         habitat: '',
-        attack: '',
+        question: '',
         image: '',
         color: '',
+        url: '',
+        url_attack: '',
     }
 
     const ACTIONS_TYPES = {
         ALL_UPDATE: 'ALL_UPDATE',
+        TYPE: 'TYPE'
     }
 
     const reducer = (state, action) => {
@@ -22,39 +25,45 @@ function usePokemonData() {
                 ...state,
                 id: action.payload[0],
                 name: action.payload[1],
-                type: action.payload[2],
-                habitat: action.payload[3],
-                attack: action.payload[4],
-                image: action.payload[5],
-                color: action.payload[6],
+                habitat: action.payload[2],
+                question: action.payload[3],
+                image: action.payload[4],
+                color: action.payload[5],
+                url: action.payload[6],
+                url_attack: action.payload[7],
+            }
+        } else if (action.type === ACTIONS_TYPES.TYPE) {
+            return {
+                ...state,
+                type: action.payload
             }
         } else {
             state;
         }
     }
     const [pokemonData, dispatch] = useReducer(reducer, initState);
-
-
+    const languageSelected = parseInt(localStorage.getItem('LANGUAGE')) === 1 ? 'en' : 'es';
     const ID_POKEMON = Math.floor(Math.random() * (250 - 1) + 1);;
-    //const ID_POKEMON = 25;
+    //const ID_POKEMON = 1;
 
     useEffect(() => {
         Promise.all([
             getPokemonByID(ID_POKEMON),
-            getPokemonImage(ID_POKEMON)
+            getPokemonImage(ID_POKEMON),
         ]).then(value => {
-            
-            //setActualPokemon(value[0].name.toUpperCase())
+
             dispatch({
                 type: ACTIONS_TYPES.ALL_UPDATE,
                 payload:
-                    [value[0].id,
-                    value[0].name, value[1].types[0].type.name,
+                    [value[1].id,
+                    value[1].name,
                     value[0].habitat.name,
-                    value[1].abilities[0].ability.name,
+                    (value[0].flavor_text_entries.filter(text => text.language.name === languageSelected)).filter(flavor => !flavor.flavor_text.toLowerCase().includes(value[0].name)),
                     value[1].sprites.other.dream_world.front_default,
-                    value[0].color.name]
-            })
+                    value[0].color.name,
+                    value[1].types[0].type.url,
+                    value[1].abilities[0].ability.url],
+            })            
         })
     }, [])
 

@@ -18,7 +18,7 @@
 }
 .home__play {
   position: absolute;
-  left: 58px;
+  left: 50px;
   top: 10px;
   z-index: 1;
   font-size: 1.5rem;
@@ -30,7 +30,7 @@
   content: "ꜜ";
   position: absolute;
   bottom: -35px;
-  left: 12px;
+  left: 20px;
   font-size: 3rem;
   animation: animationArrowPlay 1s linear infinite;
 }
@@ -136,6 +136,70 @@
   box-shadow: 0 0 10px 1px #FF0000AA, 0 0 10px 1px #FF0000AA inset;
   animation: animationStela 1s linear infinite;
   z-index: 1;
+}
+
+.language {
+  position: absolute;
+  top: 3rem;
+  left: 1rem;
+  width: 1.5rem;
+  height: 3rem;
+  background-color: #606978;
+  border: 1px solid #D1DCE2;
+  overflow: hidden;
+}
+.language__checkbox {
+  position: absolute;
+  left: -0.2rem;
+  top: -0.2rem;
+  width: 1.5rem;
+  height: 3rem;
+  opacity: 0;
+}
+.language__checkbox:checked ~ .language__selector {
+  transform: translateY(1.5rem);
+}
+.language__selector {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  padding: 0.2rem;
+  background-color: #D1DCE2;
+  background-image: url("../../assets/language-icon.png");
+  background-size: 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.2s linear;
+  filter: invert(1);
+  pointer-events: none;
+}
+.language__selector::after {
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+  content: "ES";
+  width: 1.5rem;
+  height: 1.5rem;
+  filter: invert(1);
+  font-size: 0.9rem;
+  color: #292639;
+  font-weight: 600;
+  background-color: #E3BE77;
+}
+.language__selector::before {
+  position: absolute;
+  bottom: -1.5rem;
+  left: 0;
+  content: "EN";
+  width: 1.5rem;
+  height: 1.5rem;
+  filter: invert(1);
+  font-size: 0.9rem;
+  color: #292639;
+  font-weight: 600;
+  background-color: #E3BE77;
 }
 
 .images {

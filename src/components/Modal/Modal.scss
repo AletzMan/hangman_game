@@ -19,11 +19,16 @@ $color_hover: #E6D816;
         position: relative;
         display: grid;
         place-items: center;
-        width: 80%;
+        width: 95%;
+        min-width: 15rem;
         height: 20rem;
         background-color: $color_header;
         border: 1px solid #E3BE7766;
         animation: animationWindow 0.6s cubic-bezier(0.53,0.36,0.35,1.35) both;
+
+        &--true {
+            height: 15rem;
+        }
     }
 
     &__again {
@@ -56,6 +61,58 @@ $color_hover: #E6D816;
         padding: 0.3rem 1rem;
         background-color: #FFFFFF10;        
     }
+
+    &__curiosity {
+        padding: 0 2rem;
+       color: $color_button;
+    }
+
+    &__container {
+        position: absolute;
+        left: 0.5rem;
+        top: 3.2rem;
+        width: 7rem;
+        display: flex;
+        padding: 0.3rem;
+        flex-direction: column;
+        background-color: $color_button;
+    }
+
+    &__type {
+        width: 100%;
+        padding: 0.2rem 0;
+        opacity: 1;
+        pointer-events: none;
+        font-size: 0.9rem;
+        font-weight: bolder;
+        color: $color_hover;
+        background-color: $color_header;        
+        border-top: 1px solid $color_button;
+        border-right: 1px solid $color_button;
+        border-left: 1px solid $color_button;
+    }
+
+    
+    &__label {
+        width: 100%;
+        padding: 0.3rem 0;
+        opacity: 1;
+        pointer-events: none;
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: $color_font;
+        background-color: $color_section;
+        border-bottom: 1px solid $color_button;
+        border-right: 1px solid $color_button;
+        border-left: 1px solid $color_button;
+
+        &one {
+            margin-bottom: 0.3rem;
+        }
+
+        &two {
+        }
+    }
 }
 
 
@@ -70,9 +127,7 @@ $color_hover: #E6D816;
     z-index: 1;
 
     &__letter {
-        position: absolute;
         font-size: 1.9rem;
-        top: 0px;
         text-align: center;
         font-weight: bold;
         text-shadow: 0 0 4px#00000088;       
@@ -95,11 +150,8 @@ $color_hover: #E6D816;
             background-image: linear-gradient(to left, #ff1100, #ffa600, #ff1100);
         }
 
-        @for $i from 1 to 10 {
-            &:nth-child(#{$i}) {
-                animation-delay: #{(1 + $i)/4}s;
-                left: #{$i*2rem};
-            }
+        &--curiosity {
+            background-image: linear-gradient(to left, #00eeff, #0066ff);
         }
     }
 }
@@ -113,6 +165,6 @@ $color_hover: #E6D816;
 
     to {
         background-position: 100% 50%;
-        transform: translateY(-15px);
+        transform: translateY(-7px);
     }
 }

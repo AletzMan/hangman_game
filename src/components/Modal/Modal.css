@@ -43,6 +43,11 @@
   -webkit-filter: drop-shadow(0px 0px 20px #d0f1c785);
   z-index: 0;
 }
+@media (max-width: 420px) {
+  .modal__image {
+    width: 7rem;
+  }
+}
 .modal__name {
   font-weight: 600;
   font-size: 1.5rem;
@@ -64,7 +69,8 @@
   border-radius: 0.3rem;
   box-sizing: border-box;
   margin: 0;
-  background-color: #8bb871;
+  background-color: #292639;
+  backdrop-filter: opacity(0.1);
 }
 .modal__type {
   width: 100%;
@@ -73,7 +79,9 @@
   font-size: 0.75rem;
   font-weight: bolder;
   color: #E6D816;
-  background-color: #14386d;
+  border-radius: 0.3rem 0.3rem 0 0;
+  background-color: #165269dd;
+  border-bottom: 1px solid #FFFFFF;
 }
 .modal__label {
   width: 100%;
@@ -82,11 +90,75 @@
   font-size: 0.7rem;
   font-weight: bold;
   color: #D1DCE2;
-  background-color: #9c51b9;
+  background-color: #165269dd;
 }
 .modal__labelone {
   margin-bottom: 0.3rem;
 }
+.modal__containertwo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: absolute;
+  right: 0.5rem;
+  top: 3.2rem;
+  width: 8.5rem;
+  padding: 0.3rem;
+  border-radius: 0.2rem;
+  background-color: #292639;
+}
+.modal__stats {
+  grid-column: 1/span 2;
+  font-size: 0.7rem;
+  width: 70%;
+  height: 65%;
+  padding: 0 0 0.2rem 0;
+  justify-self: center;
+  background-color: #292639;
+  color: #D1DCE2;
+  font-weight: bold;
+}
+.modal__label--stats {
+  width: 90%;
+  height: 80%;
+  font-size: 0.6rem;
+  text-align: left;
+  padding: 0 0 0.1rem 0.2rem;
+  background-color: #16181abb;
+  border: 1px solid #dcdee088;
+  color: #E6D816;
+}
+.modal__bar {
+  position: relative;
+  width: 100%;
+  height: 80%;
+  font-size: 0.7rem;
+  transition: all 0.2s linear;
+}
+.modal__bar::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: attr(data);
+  width: 4.3rem;
+  height: 100%;
+  color: #cac9c9;
+  font-weight: bold;
+  border: 1px solid #e9e7e799;
+  background-color: #44a4b125;
+}
+.modal__bar--hp {
+  background-color: #a1062099;
+}
+.modal__bar--attack {
+  background-color: #13a10699;
+}
+.modal__bar--defense {
+  background-color: #1193bb99;
+}
+.modal__bar--speed {
+  background-color: #dbb61199;
+}
+
 @keyframes animationWindow {
   from {
     transform: translateX(500px);

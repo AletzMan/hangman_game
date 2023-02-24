@@ -12,6 +12,7 @@ function usePokemonData() {
         color: '',
         url: '',
         url_attack: '',
+        stats: '',
     }
 
     const ACTIONS_TYPES = {
@@ -31,6 +32,7 @@ function usePokemonData() {
                 color: action.payload[5],
                 url: action.payload[6],
                 url_attack: action.payload[7],
+                stats: action.payload[8],
             }
         } else if (action.type === ACTIONS_TYPES.TYPE) {
             return {
@@ -45,11 +47,12 @@ function usePokemonData() {
     const languageSelected = parseInt(localStorage.getItem('LANGUAGE')) === 1 ? 'en' : 'es';
     
     useEffect(() => {
-        const ID_POKEMON = Math.floor(Math.random() * (999 - 1) + 1);;
+        const ID_POKEMON = Math.floor(Math.random() * (1008 - 1) + 1);;
+        //const ID_POKEMON = 1008;
         //const ID_POKEMON = 386;
         //const ID_POKEMON = 6;
         //const ID_POKEMON = 955;
-        console.log(ID_POKEMON);
+        
         Promise.all([
             getPokemonByID(ID_POKEMON),
             getPokemonImage(ID_POKEMON),
@@ -65,7 +68,8 @@ function usePokemonData() {
                     value[1].sprites.other["official-artwork"].front_default,
                     value[0].color?.name,
                     value[1].types[0].type.url,
-                    value[1].abilities[0].ability.url],
+                    value[1].abilities[0].ability.url,
+                    value[1].stats],
             })            
         })
     }, [])

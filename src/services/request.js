@@ -26,7 +26,7 @@ export const getPokemonType = async (url) => {
     try {
         const response = await fetch(`${url}`)
         const data = await response.json();
-        console.log(url, data);
+        //console.log(url, data);
         return data;
     } catch (err) {
         return console.error(err);

@@ -39,7 +39,7 @@ function Modal({ pokemonData, winner, viewClue, setViewClue }) {
     } else if (!viewClue && !winner) {
         localStorage.setItem('GAMES_WON', 0);
     }
-
+    
     return (
         <div className="modal">
             <div className={`modal__window modal__window--${viewClue}`}>
@@ -57,11 +57,22 @@ function Modal({ pokemonData, winner, viewClue, setViewClue }) {
                 {!viewClue && <span className="modal__name" style={{ color: `${pokemonData.color}` }}>{pokemonData.name.toUpperCase()}</span>}
                 {!viewClue && <button className="modal__again" onClick={playAgain}>{winner ? language[languageSelected].modal.button.winner : language[languageSelected].modal.button.loser}</button>}
                 {viewClue && <button className="modal__again" onClick={() => setViewClue(false)}>{language[languageSelected].modal.button.curiosity}</button>}
-                {!viewClue && <div className="modal__container">
+                {!viewClue && <div className="modal__container"  style={{ boxShadow: `0 0 5px 1px ${pokemonData.color}` }}>
                     <label className="modal__type">{languageSelected === 0 ? 'TIPO:' : 'TYPE:'}</label>
                     <label className={`modal__labelone modal__label`}>{type.toUpperCase()}</label>
                     <label className="modal__type">{languageSelected === 0 ? 'HABILIDAD:' : 'ABILITY:'}</label>
                     <label className={`modal__labeltwo modal__label`}>{attack.toUpperCase()}</label>
+                </div>}
+                {!viewClue && <div className="modal__containertwo"  style={{ boxShadow: `0 0 5px 1px ${pokemonData.color}` }}>
+                    <label className="modal__stats">{languageSelected === 0 ? 'ESTADÍSTICAS' : 'STATS:'}</label>
+                    <label className={`modal__label--hp modal__label--stats`}>{'HP:'}</label>
+                    <div className="modal__bar--hp modal__bar" style={{ width: `${(100 / 250) * pokemonData.stats[0].base_stat}%` }} data={pokemonData.stats[0].base_stat}></div>
+                    <label className={`modal__label--attack modal__label--stats`}>{languageSelected === 0 ? 'ATAQUE:' : 'ATTACK:'}</label>
+                    <div className="modal__bar--attack modal__bar" style={{ width: `${(100 / 250) * pokemonData.stats[1].base_stat}%` }} data={pokemonData.stats[1].base_stat}></div>
+                    <label className={`modal__label--defense modal__label--stats`}>{languageSelected === 0 ? 'DEFENSA:' : 'DEFENSE:'}</label>
+                    <div className="modal__bar--defense modal__bar" style={{ width: `${(100 / 250) * pokemonData.stats[2].base_stat}%` }} data={pokemonData.stats[2].base_stat}></div>
+                    <label className={`modal__label--speed modal__label--stats`}>{languageSelected === 0 ? 'VELOCIDAD:' : 'SPEED:'}</label>
+                    <div className="modal__bar--speed modal__bar" style={{ width: `${(100 / 250) * pokemonData.stats[3].base_stat}%` }} data={pokemonData.stats[3].base_stat}></div>
                 </div>}
             </div>
         </div>

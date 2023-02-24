@@ -2,7 +2,7 @@ import { Header } from '../../components/Header/header';
 import { SectionGame } from '../../components/SectionGame/SectionGame';
 import './App.css';
 import { SecretWord } from '../../components/SecretWord/SecretWord';
-import { Alphabet } from '../../components/Alphabet/Alphabet';
+import { Keyboard } from '../../components/Keyboard/Keyboard';
 import { Footer } from '../../components/Footer/Footer';
 import { HumanBody } from '../../components/HumanBody/HumanBody';
 import { useStats } from '../../Hooks/UseStats';
@@ -41,10 +41,10 @@ function GamePage() {
           pokemonData={pokemonData}
         ></SecretWord>
         <HumanBody stateLives={stateLives}></HumanBody>
-        <Clues pokemonData={pokemonData} setViewClue={setViewClue}  setStateLives={setStateLives}></Clues>
+        <Clues stateLives={stateLives} setViewClue={setViewClue}  setStateLives={setStateLives}></Clues>
       </SectionGame>
       <Footer>
-        <Alphabet updateLetter={updateLetter} setStateLives={setStateLives} stateLives={stateLives} pokemonData={pokemonData} setWinner={setWinner}></Alphabet>
+        <Keyboard updateLetter={updateLetter} setStateLives={setStateLives} stateLives={stateLives} pokemonData={pokemonData} setWinner={setWinner}></Keyboard>
       </Footer>
       {(viewModal || viewClue) && <Modal pokemonData={pokemonData} winner={winner} viewClue={viewClue} setViewClue={setViewClue}></Modal>}
     </>

@@ -23,18 +23,21 @@ $color_hover: #E6D816;
 
     &__play{
         position: absolute;
-        left: 50px;
-        top: 10px;
+        text-align: center;
+        left: 2.5rem;
+        top: 0.7rem;
+        width: 5rem;
         z-index: 1;
         font-size: 1.5rem;
         font-weight: 600;
         font-family: 'Shantell Sans', cursive;
         color: $color_button;
+
         &::before{
             content: 'ꜜ';
             position: absolute;
-            bottom: -35px;
-            left: 20px;
+            bottom: -2.5rem;
+            left: 1.9rem;
             font-size: 3rem;
             animation: animationArrowPlay 1s linear infinite;
         }
@@ -175,6 +178,7 @@ $color_hover: #E6D816;
         width: 1.5rem;
         height: 3rem;
         opacity: 0;
+        cursor: pointer;
 
         &:checked ~ .language__selector{
             transform: translateY(1.5rem);
@@ -238,10 +242,26 @@ $color_hover: #E6D816;
     &__pikachu {
         width: 8rem;
     }
+
+    &__logo {
+        position: absolute;
+        bottom: 0.2rem;
+        left: 0.2rem;
+        width: 2rem;
+        background-color: transparent;
+    }
+
+    &__name {
+        position: absolute;
+        bottom: 0.5rem;
+        left: 2.5rem;
+        font-size: 0.8rem;
+        color: #D1DCE2;
+    }
 }
 
 
-@keyframes animationArrowPlay {
+@keyframes animationArrowPlay {                           
     0% {
         transform: translateY(-5px);
         opacity: 1;

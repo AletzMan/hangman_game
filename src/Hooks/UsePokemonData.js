@@ -43,24 +43,27 @@ function usePokemonData() {
     }
     const [pokemonData, dispatch] = useReducer(reducer, initState);
     const languageSelected = parseInt(localStorage.getItem('LANGUAGE')) === 1 ? 'en' : 'es';
-    const ID_POKEMON = Math.floor(Math.random() * (250 - 1) + 1);;
-    //const ID_POKEMON = 1;
-
+    
     useEffect(() => {
+        const ID_POKEMON = Math.floor(Math.random() * (999 - 1) + 1);;
+        //const ID_POKEMON = 386;
+        //const ID_POKEMON = 6;
+        //const ID_POKEMON = 955;
+        console.log(ID_POKEMON);
         Promise.all([
             getPokemonByID(ID_POKEMON),
             getPokemonImage(ID_POKEMON),
         ]).then(value => {
-
+            //console.log(value[1].sprites.other["official-artwork"].front_default)
             dispatch({
                 type: ACTIONS_TYPES.ALL_UPDATE,
                 payload:
                     [value[1].id,
-                    value[1].name,
-                    value[0].habitat.name,
-                    (value[0].flavor_text_entries.filter(text => text.language.name === languageSelected)).filter(flavor => !flavor.flavor_text.toLowerCase().includes(value[0].name)),
-                    value[1].sprites.other.dream_world.front_default,
-                    value[0].color.name,
+                    value[0].name,
+                    value[0].habitat?.name,
+                    (value[0].flavor_text_entries?.filter(text => text.language.name === languageSelected)).filter(flavor => !flavor.flavor_text.toLowerCase().includes(value[0].name)),
+                    value[1].sprites.other["official-artwork"].front_default,
+                    value[0].color?.name,
                     value[1].types[0].type.url,
                     value[1].abilities[0].ability.url],
             })            

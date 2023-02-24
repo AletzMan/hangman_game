@@ -2,7 +2,7 @@ import React from "react";
 import "./Clues.css"
 import { language } from "../../services/language";
 
-function Clues({ pokemonData, setViewClue, setStateLives } ) {
+function Clues({ stateLives, setViewClue, setStateLives } ) {
 
     const showClue = () => {
         setViewClue(true)
@@ -14,7 +14,7 @@ function Clues({ pokemonData, setViewClue, setStateLives } ) {
     return (
         <div className="clues">
             <label className="clues__button--label">{language[languageSelected].clues.title}</label>
-            <button className="clues__button" onClick={showClue}>?</button>
+            <button disabled={stateLives < 3} className={`clues__button clues__button--${stateLives < 3}`} onClick={showClue}>?</button>
         </div>
     )
 }

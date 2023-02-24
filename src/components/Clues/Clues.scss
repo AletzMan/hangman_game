@@ -39,13 +39,24 @@ $color_hover: #E6D816;
         background-color: $color_section;
         color: #30b2c4;
         transition: all 0.3s linear;
-        animation: animationLabel 1s linear infinite alternate;
-        cursor: pointer;
+        
 
-        &:hover {
-            border: 3px solid $color_section;
-            background-color: #D1DCE2AA;
+        &--false {
+            animation: animationLabel 1s linear infinite alternate;
+
+            &:hover {
+                border: 3px solid $color_section;
+                background-color: #D1DCE2AA;
+                cursor: pointer;
+            }
         }
+
+        &--true {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+
 
         &--label {
             position: absolute;
@@ -54,10 +65,11 @@ $color_hover: #E6D816;
             padding: 0.3rem 1rem;
             color: $color_header;
             font-weight: 600;
+            border-radius: 0.5rem 0.5rem 0 0;
             border: 1px solid $color_header;
             background-color: #E3BE77;
         }
-        
+
     }
 }
 
@@ -66,7 +78,7 @@ $color_hover: #E6D816;
     0% {
         box-shadow: 0 0 0px 0px #3dc4fa inset;
     }
-    
+
     100% {
         box-shadow: 0 0 20px 1px #3de4fa inset;
     }

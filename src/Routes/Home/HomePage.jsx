@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./HomePage.css"
+import logo from "../../assets/logo-small.svg";
 import pokemonImage from "../../assets/pokemon-image.png";
 import pikachuImage from "../../assets/pikachu-image.png";
 import { language } from "../../services/language";
@@ -53,6 +54,8 @@ function HomePage() {
             </div>
             <img className="images__pikachu" src={pikachuImage} alt="pikachu"></img>
             <img className="images__pokemon" src={pokemonImage} alt="pokemon square charmander bulbasaur"></img>
+            <img className="images__logo" src={logo} alt="logo Alejandro Garcia"></img> 
+            <a rel="noopener noreferrer" target={'_blank '}  href={"https://github.com/AletzMan"}  className="images__name">By Alejandro Garcia</a> 
 
         </section>
     )

@@ -24,7 +24,7 @@ $color_hover: #E6D816;
         height: 20rem;
         background-color: $color_header;
         border: 1px solid #E3BE7766;
-        animation: animationWindow 0.6s cubic-bezier(0.53,0.36,0.35,1.35) both;
+        animation: animationWindow 0.6s cubic-bezier(0.53, 0.36, 0.35, 1.35) both;
 
         &--true {
             height: 15rem;
@@ -48,8 +48,8 @@ $color_hover: #E6D816;
         }
     }
 
-    &__image{
-        width: 7rem;
+    &__image {
+        width: 11rem;
         filter: drop-shadow(5px 5px 5px #FFFFFF);
         -webkit-filter: drop-shadow(0px 0px 20px #d0f1c785);
         z-index: 0;
@@ -59,66 +59,65 @@ $color_hover: #E6D816;
         font-weight: 600;
         font-size: 1.5rem;
         padding: 0.3rem 1rem;
-        background-color: #FFFFFF10;        
+        background-color: #FFFFFF10;
     }
 
     &__curiosity {
         padding: 0 2rem;
-       color: $color_button;
+        color: $color_button;
     }
 
     &__container {
         position: absolute;
+        display: flex;
+        flex-direction: column;
         left: 0.5rem;
         top: 3.2rem;
-        width: 7rem;
-        display: flex;
-        padding: 0.3rem;
-        flex-direction: column;
-        background-color: $color_button;
+        width: 6rem;
+        padding: 0.2rem;
+        border-radius: 0.3rem;
+        box-sizing: border-box;
+        margin: 0;
+        background-color: #8bb871;
     }
 
     &__type {
         width: 100%;
-        padding: 0.2rem 0;
         opacity: 1;
         pointer-events: none;
-        font-size: 0.9rem;
+        font-size: 0.75rem;
         font-weight: bolder;
         color: $color_hover;
-        background-color: $color_header;        
-        border-top: 1px solid $color_button;
-        border-right: 1px solid $color_button;
-        border-left: 1px solid $color_button;
+        background-color: #14386d;
     }
 
-    
+
     &__label {
         width: 100%;
-        padding: 0.3rem 0;
         opacity: 1;
         pointer-events: none;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         font-weight: bold;
         color: $color_font;
-        background-color: $color_section;
-        border-bottom: 1px solid $color_button;
-        border-right: 1px solid $color_button;
-        border-left: 1px solid $color_button;
+        background-color: #9c51b9;
 
         &one {
             margin-bottom: 0.3rem;
         }
 
-        &two {
-        }
+        &two {}
     }
 }
 
 
 @keyframes animationWindow {
-    from{transform: translateX(500px);}
-    to{transform: translateX(0);}
+    from {
+        transform: translateX(500px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
 }
 
 .paragraph {
@@ -127,10 +126,11 @@ $color_hover: #E6D816;
     z-index: 1;
 
     &__letter {
+        margin-top: 0.5rem;
         font-size: 1.9rem;
         text-align: center;
         font-weight: bold;
-        text-shadow: 0 0 4px#00000088;       
+        text-shadow: 0 0 4px#00000088;
         color: transparent;
         -webkit-background-clip: text;
         background-clip: text;
@@ -145,7 +145,7 @@ $color_hover: #E6D816;
         &--true {
             background-image: linear-gradient(to left, #136ce0, #0dc23a, #eeb909);
         }
-        
+
         &--false {
             background-image: linear-gradient(to left, #ff1100, #ffa600, #ff1100);
         }

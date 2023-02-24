@@ -33,12 +33,18 @@
   background-color: #606978;
   color: #30b2c4;
   transition: all 0.3s linear;
-  animation: animationLabel 1s linear infinite alternate;
-  cursor: pointer;
 }
-.clues__button:hover {
+.clues__button--false {
+  animation: animationLabel 1s linear infinite alternate;
+}
+.clues__button--false:hover {
   border: 3px solid #606978;
   background-color: #D1DCE2AA;
+  cursor: pointer;
+}
+.clues__button--true {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 .clues__button--label {
   position: absolute;
@@ -47,6 +53,7 @@
   padding: 0.3rem 1rem;
   color: #292639;
   font-weight: 600;
+  border-radius: 0.5rem 0.5rem 0 0;
   border: 1px solid #292639;
   background-color: #E3BE77;
 }

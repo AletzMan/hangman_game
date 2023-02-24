@@ -4,7 +4,7 @@ export const language = [
             title: 'Juego del Ahorcado',
             subtitle: '¿Quién es ese pokemon?',
             button: 'Jugar',
-            games: 'Juegos Ganados:',
+            games: 'Ganados:',
         },
         clues: {
             title: 'Pistas',
@@ -14,6 +14,7 @@ export const language = [
                 winner: '¡HAS ACERTADO!',
                 loser: '¡HAS FALLADO!',
                 curiosity: 'SABIAS QUE...?',
+                unknown: 'NO HAY PISTAS',
             },
             button: {
                 winner: 'Siguiente',
@@ -37,6 +38,7 @@ export const language = [
                 winner: `YOU'VE GOT IT RIGHT!`,
                 loser: 'YOU HAVE FAILED!',
                 curiosity: 'DID YOU KNOW THAT...?',
+                unknown: 'SORRY, NO CLUES',
             },
             button: {
                 winner: 'Next',

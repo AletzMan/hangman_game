@@ -1,8 +1,8 @@
 
 import { useEffect } from "react";
 import { useRef } from "react";
-import "./Alphabet.css";
-const ALPHABET = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+import "./Keyboard.css";
+const ALPHABET = "QWERTYUIOPASDFGHJKLZXCVBNM";
 let characters = [];
 characters.length = ALPHABET.length;
 let pressedKey = [];
@@ -10,7 +10,7 @@ pressedKey.length = ALPHABET.length;
 let pressedLetter;
 let numberOfHits = 0;
 
-function Alphabet({ updateLetter, setStateLives, stateLives, pokemonData, setWinner }) {
+function Keyboard({ updateLetter, setStateLives, stateLives, pokemonData, setWinner }) {
     const correctLetters = useRef(0);
     useEffect(() => {
         updateLetter('');
@@ -64,4 +64,4 @@ function Alphabet({ updateLetter, setStateLives, stateLives, pokemonData, setWin
         </div>
     )
 }
-export { Alphabet }
+export { Keyboard }
